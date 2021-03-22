@@ -1,0 +1,23 @@
+npm init
+
+npm install restify
+
+npm i nodemon -g
+
+npm i mongoose
+npm install mongoose
+
+
+
+Linguagem - node.js
+Framework para criação de web service RESTful - restify
+Banco de dados - MongoDB
+ODM - mongoose
+
+
+
+
+
+START
+node index.js
+npm start
