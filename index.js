@@ -3,31 +3,6 @@ const app = express()
 const controler = require('./controler.js');
 const restify = require('restify');
 const mongoose = require('mongoose');
-const corsMiddleware = require('restify-cors-middleware');
-
-const cors = corsMiddleware({
-  origins: ["*"],
-  allowHeaders: ["Authorization"],
-  exposeHeaders: ["Authorization"]
-});
-
-
-
-var allowCrossDomain = function (req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
-
-  // intercept OPTIONS method
-  if ('OPTIONS' == req.method) {
-    res.send(200);
-  }
-  else {
-    next();
-  }
-};
-
-app.set(allowCrossDomain);
 
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
@@ -44,9 +19,6 @@ mongoose.connect(mongoConnectionString, { useNewUrlParser: true, useUnifiedTopol
       name: 'E-Sports',
       version: '1.0.0'  //??
     });
-
-    server.pre(cors.preflight);
-    server.use(cors.actual);
 
     server.use(restify.plugins.acceptParser(server.acceptable));
     server.use(restify.plugins.queryParser());
