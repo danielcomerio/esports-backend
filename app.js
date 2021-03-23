@@ -38,7 +38,9 @@ module.exports = {
     login: (req, res, next) => {
 
         const { email, senha } = req.body;
-
+        console.log(req.body);
+        console.log(email);
+        console.log(senha);
         User.find({ email: email, senha: senha }).then(user => {
             res.status(200);
             if (user.permissao == 'cliente') {
