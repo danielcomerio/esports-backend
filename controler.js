@@ -38,10 +38,7 @@ module.exports = {
     login: (req, res, next) => {
 
         const { email, senha } = req.body;
-        console.log(req.body);
-        console.log(email);
-        console.log(senha);
-        User.find({ email: email, senha: senha }).then(user => {
+        User.findOne({ email: email, senha: senha }).then(user => {
             switch (user.permissao) {
                 case 'cliente':
                     res.status(200);
@@ -55,12 +52,12 @@ module.exports = {
                     break;
                 default:
                     res.status(404);
-                    res.json({ message: user });
+                    res.json({ message: 'none' });
             }
 
         }).catch(error => {
             res.status(404);
-            res.json({ message: 'deu ruim' });
+            res.json({ message: error.message });
         })
     }
 
