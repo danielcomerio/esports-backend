@@ -42,11 +42,20 @@ module.exports = {
         console.log(email);
         console.log(senha);
         User.find({ email: email, senha: senha }).then(user => {
-            res.status(200);
-            if (user.permissao == 'cliente') {
-                res.json({ message: 'cliente' });
-            } else {
-                res.json({ message: 'admin' });
+            switch (user.permissao) {
+                case 'cliente':
+                    res.status(200);
+                    res.json({ message: 'cliente' });
+
+                    break;
+                case 'admin':
+                    res.status(200);
+                    res.json({ message: 'admin' });
+
+                    break;
+                default:
+                    res.status(404);
+                    res.json({ message: 'null' });
             }
 
         }).catch(error => {
