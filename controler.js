@@ -55,12 +55,12 @@ module.exports = {
                     break;
                 default:
                     res.status(404);
-                    res.json({ message: 'null' });
+                    res.json({ message: user });
             }
 
         }).catch(error => {
             res.status(404);
-            res.json({ message: error.message });
+            res.json({ message: 'deu ruim' });
         })
     }
 
