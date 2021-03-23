@@ -35,11 +35,34 @@ mongoose.connect(mongoConnectionString, { useNewUrlParser: true, useUnifiedTopol
 
     server.use(restify.plugins.bodyParser());
 
+
     /*---- SERVER ROUTES ----*/
-    server.get('/user', controler.getUsers);
-    server.get('/user/:id', controler.getUser);
-    server.post('/user', controler.postUser);
+    server.get('/cadastro', controler.getCadastros);
+    server.get('/cadastro/:id', controler.getCadastro);
+    server.post('/cadastro', controler.cadastro);
     server.post('/login', controler.login);
+
+    server.post('/produto', controler.postProduto);
+    server.post('/pedidoPedente', controler.postPedidoPedente);
+    server.post('/PedidoEmAndamento', controler.postPedidoEmAndamento);
+    server.post('/PedidoFinalizado', controler.postPedidoFinalizado);
+
+    server.get('/produtos', controler.getProdutos);
+    server.get('/produto/:id', controler.getProduto);
+
+    server.get('/equipamentos', controler.getEquipamentos);
+    server.get('/feminino', controler.getFeminino);
+    server.get('/masculino', controler.getMasculino);
+    server.get('/infantil', controler.getInfantil);
+    server.get('/roupas', controler.getRoupas);
+    server.get('/calcados', controler.getCalcados);
+
+    //server.get('/estoque', controler.getEstoque);
+    server.get('/pedidosPedentes', controler.getPedidosPedentes);
+    server.get('/PedidosEmAndamento', controler.getPedidosEmAndamento);
+    server.get('/PedidosFinalizados', controler.getPedidosFinalizados);
+    /*---- SERVER ROUTES ----*/
+
 
     /*---- LISTENING ----*/
     server.listen(PORT, () => {
