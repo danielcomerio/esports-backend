@@ -1,6 +1,13 @@
 const app = require('./app.js');
 const restify = require('restify');
 const mongoose = require('mongoose');
+const corsMiddleware =  require('restify-cors-middleware'); 
+
+const cors = corsMiddleware({  
+    origins: ["*"],
+    allowHeaders: ["Authorization"],
+    exposeHeaders: ["Authorization"]
+});
 
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
@@ -17,6 +24,9 @@ mongoose.connect(mongoConnectionString, { useNewUrlParser: true, useUnifiedTopol
             name: 'E-Sports',
             version: '1.0.0'  //??
         });
+
+        server.pre(cors.preflight);
+        server.use(cors.actual);
 
         server.use(restify.plugins.acceptParser(server.acceptable));
         server.use(restify.plugins.queryParser());
