@@ -79,9 +79,9 @@ module.exports = {
     },
 
     postPedidoPedente: (req, res, next) => {
-        let pedidoPedente = new PedidoPedente(req.body);
-        pedidoPedente.save().then(pedidoPedente => {
-            res.json(pedidoPedente);
+        let pedidoPendente = new PedidoPendente(req.body);
+        pedidoPendente.save().then(pedidoPendente => {
+            res.json(pedidoPendente);
         }).catch(error => {
             res.status(400);
             res.json({ message: error.message });
