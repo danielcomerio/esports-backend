@@ -134,7 +134,7 @@ module.exports = {
 
     getEquipamentos: (req, res, next) => {
 
-        Produto.find({ categoria: 'equipamento' }).then(produtos => {
+        Produto.find({ categoria: 'equipamentos' }).then(produtos => {
             res.json(produtos);
             return next();
         })
@@ -166,7 +166,7 @@ module.exports = {
 
     getRoupas: (req, res, next) => {
 
-        Produto.find({ categoria: 'roupa' }).then(produtos => {
+        Produto.find({ categoria: 'roupas' }).then(produtos => {
             res.json(produtos);
             return next();
         })
@@ -174,7 +174,7 @@ module.exports = {
 
     getCalcados: (req, res, next) => {
 
-        Produto.find({ categoria: 'calcado' }).then(produtos => {
+        Produto.find({ categoria: 'calcados' }).then(produtos => {
             res.json(produtos);
             return next();
         })
