@@ -66,7 +66,7 @@ mongoose.connect(mongoConnectionString, { useNewUrlParser: true, useUnifiedTopol
     server.post('/pedidoCliente', controler.postPedidoCliente);
 
     server.get('/fornecedores', controler.getFornecedores);
-    server.get('/fornecedorProdutos', controler.getFornecedorProdutos);
+    server.get('/fornecedorProdutos/:fornecedor', controler.getFornecedorProdutos);
     /*---- SERVER ROUTES ----*/
 
 

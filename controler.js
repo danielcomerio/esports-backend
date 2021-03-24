@@ -229,14 +229,14 @@ module.exports = {
 
     getFornecedores: (req, res, next) => {
 
-        Produto.find().distinct('fornecedor').select('fornecedor').then(fornecedores => {
+        Produto.distinct('fornecedor').then(fornecedores => {
             res.json(fornecedores);
             return next();
         })
     },
 
     getFornecedorProdutos: (req, res, next) => {
-        let { fornecedor } = req.body
+        let fornecedor = req.params.fornecedor;
         Produto.find({ 'fornecedor': fornecedor }).then(pedidos => {
             res.json(pedidos);
             return next();
