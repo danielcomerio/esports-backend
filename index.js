@@ -44,8 +44,8 @@ mongoose.connect(mongoConnectionString, { useNewUrlParser: true, useUnifiedTopol
 
     server.post('/produto', controler.postProduto);
     server.post('/pedidoPedente', controler.postPedidoPedente);
-    server.post('/PedidoEmAndamento', controler.postPedidoEmAndamento);
-    server.post('/PedidoFinalizado', controler.postPedidoFinalizado);
+    server.post('/pedidoEmAndamento', controler.postPedidoEmAndamento);
+    server.post('/pedidoFinalizado', controler.postPedidoFinalizado);
 
     server.get('/produtos', controler.getProdutos);
     server.get('/produto/:id', controler.getProduto);
@@ -59,8 +59,8 @@ mongoose.connect(mongoConnectionString, { useNewUrlParser: true, useUnifiedTopol
 
     //server.get('/estoque', controler.getEstoque);
     server.get('/pedidosPendentes', controler.getPedidosPendentes);
-    server.get('/PedidosEmAndamento', controler.getPedidosEmAndamento);
-    server.get('/PedidosFinalizados', controler.getPedidosFinalizados);
+    server.get('/pedidosEmAndamento', controler.getPedidosEmAndamento);
+    server.get('/pedidosFinalizados', controler.getPedidosFinalizados);
 
     server.get('/pedidosCliente', controler.getPedidosCliente);
     server.post('/pedidoCliente', controler.postPedidoCliente);
