@@ -182,7 +182,7 @@ module.exports = {
 
 
 
-    getPedidosPedentes: (req, res, next) => {
+    getPedidosPendentes: (req, res, next) => {
 
         PedidoPendente.find().then(pedidos => {
             res.json(pedidos);

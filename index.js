@@ -58,7 +58,7 @@ mongoose.connect(mongoConnectionString, { useNewUrlParser: true, useUnifiedTopol
     server.get('/calcados', controler.getCalcados);
 
     //server.get('/estoque', controler.getEstoque);
-    server.get('/pedidosPedentes', controler.getPedidosPedentes);
+    server.get('/pedidosPendentes', controler.getPedidosPendentes);
     server.get('/PedidosEmAndamento', controler.getPedidosEmAndamento);
     server.get('/PedidosFinalizados', controler.getPedidosFinalizados);
 
