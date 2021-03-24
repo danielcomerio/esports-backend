@@ -1,6 +1,11 @@
 let mongoose = require('mongoose');
 
 let produtoSchema = mongoose.Schema({
+    fornecedor: {
+        type: String,
+        required: true,
+    },
+
     nome: {
         type: String,
         required: true,
@@ -17,7 +22,7 @@ let produtoSchema = mongoose.Schema({
         required: true
     },
 
-    cateogira: {
+    categoria: {
         type: String,
         required: true
     },

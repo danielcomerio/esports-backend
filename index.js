@@ -37,7 +37,7 @@ mongoose.connect(mongoConnectionString, { useNewUrlParser: true, useUnifiedTopol
 
 
     /*---- SERVER ROUTES ----*/
-    server.get('/cadastro', controler.getCadastros);
+    server.get('/cadastros', controler.getCadastros);
     server.get('/cadastro/:id', controler.getCadastro);
     server.post('/cadastro', controler.cadastro);
     server.post('/login', controler.login);
@@ -61,6 +61,12 @@ mongoose.connect(mongoConnectionString, { useNewUrlParser: true, useUnifiedTopol
     server.get('/pedidosPedentes', controler.getPedidosPedentes);
     server.get('/PedidosEmAndamento', controler.getPedidosEmAndamento);
     server.get('/PedidosFinalizados', controler.getPedidosFinalizados);
+
+    server.get('/pedidosCliente', controler.getPedidosCliente);
+    server.post('/pedidoCliente', controler.postPedidoCliente);
+
+    server.get('/fornecedores', controler.getFornecedores);
+    server.get('/fornecedorProdutos', controler.getFornecedorProdutos);
     /*---- SERVER ROUTES ----*/
 
 

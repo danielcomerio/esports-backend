@@ -3,6 +3,7 @@ let PedidoEmAndamento = require('./models/pedidoEmAndamento');
 let PedidoFinalizado = require('./models/pedidoFinalizado');
 let PedidoPendente = require('./models/pedidoPendente');
 let Produto = require('./models/produto');
+let PedidoCliente = require('./models/pedidoCliente');
 
 module.exports = {
 
@@ -200,6 +201,43 @@ module.exports = {
     getPedidosFinalizados: (req, res, next) => {
 
         PedidoFinalizado.find().then(pedidos => {
+            res.json(pedidos);
+            return next();
+        })
+    },
+
+
+    getPedidosCliente: (req, res, next) => {
+
+        PedidoCliente.find().then(pedidos => {
+            res.json(pedidos);
+            return next();
+        })
+    },
+
+    postPedidoCliente: (req, res, next) => {
+
+        let pedidoCliente = new PedidoCliente(req.body);
+        pedidoCliente.save().then(pedidoCliente => {
+            res.json(pedidoCliente);
+        }).catch(error => {
+            res.status(400);
+            res.json({ message: error.message });
+        });
+    },
+
+
+    getFornecedores: (req, res, next) => {
+
+        Produto.find().distinct('fornecedor').select('fornecedor').then(fornecedores => {
+            res.json(fornecedores);
+            return next();
+        })
+    },
+
+    getFornecedorProdutos: (req, res, next) => {
+        let { fornecedor } = req.body
+        Produto.find({ 'fornecedor': fornecedor }).then(pedidos => {
             res.json(pedidos);
             return next();
         })
